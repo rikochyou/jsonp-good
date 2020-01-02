@@ -4,7 +4,7 @@ echo "Enter release version: "
 read VERSION
 read -p "Releasing $VERSION - are you sure?(y/n)" -n 1 -r
 echo # (optional) move to a new line
-if [[ $RERLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then 
   echo "Releasing $VERSION ..."
 
@@ -15,5 +15,5 @@ then
   git push jsonp-good master
 
   # publish
-  npm publish
+  npm publish --registry http://registry.npmjs.org
   fi
