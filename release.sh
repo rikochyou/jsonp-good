@@ -15,5 +15,6 @@ then
   git push jsonp-good master
 
   # publish
+  npm version patch $VERSION
   npm publish --registry http://registry.npmjs.org
   fi

@@ -12,6 +12,9 @@ function encode(val: string): string {
 }
 
 export function buildURL(url: string, funcName: string, params?: any) {
+  if (!url) {
+    throw new Error('url must exist!')
+  }
   if (!params) {
     url = url + '?callback=' + funcName
     return url

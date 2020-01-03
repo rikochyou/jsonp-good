@@ -3,9 +3,11 @@ import { JsonpConfig, JsonpPromise, Window } from '../types'
 export default function jsonp(config: JsonpConfig): JsonpPromise {
   return new Promise((resolve, reject) => {
     const { url, timeout = 6000, funcName } = config
-      // 解决ts在window上挂属性报错的问题
+    if (!funcName) {
+      reject(new Error('funcName must exist!'))
+    }
+    // 解决ts在window上挂属性报错的问题
     ;(<any>window)[funcName!] = function(data: any) {
-      console.log('jsonp data', data)
       clean()
       resolve(data)
     }

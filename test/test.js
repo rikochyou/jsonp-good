@@ -33,3 +33,17 @@ test('timeout', function(t) {
     t.ok(e instanceof Error)
   })
 })
+
+test('lack of funcName', function(t) {
+  t.plan(1)
+  jsonpG({
+    url: 'http://jsfiddle.net/echo/jsonp/',
+    timeout: 3000,
+    params: {
+      a: '1',
+      b: '2'
+    }
+  }).catch(e => {
+    t.ok(e instanceof Error)
+  })
+})

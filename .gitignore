@@ -9,4 +9,5 @@ dist
 compiled
 .awcache
 .rpt2_cache
+release.sh
 docs
